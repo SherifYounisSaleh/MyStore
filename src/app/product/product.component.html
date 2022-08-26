@@ -1,0 +1,17 @@
+<div>
+<div class="main">
+<a routerLink="/product-details/{{product.id}}"><img src={{product.url}} style="width:200px;height:190px" /></a>
+</div>
+<br />
+<div class="centerClass">
+{{product.name}}
+<br />
+{{product.price|currency:"$"}}
+<br />
+
+<input class ="inputNum" type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity">
+<br/>
+<button (click)="addToCart($event, product)" style="background-color:blue; color:white">Add To Cart</button>
+<br />
+</div>
+</div> 

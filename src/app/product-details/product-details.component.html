@@ -1,0 +1,18 @@
+<div *ngFor="let contact of product" class="column">
+  <div class=" row ">
+    <div>
+   <img src={{contact.url}} style="width:300px;height:300px" />
+    </div>
+    &nbsp;
+    &nbsp;
+    <div>
+    <br />
+    Item Name: {{contact.name}}
+    <br/>
+    Description: {{contact.description}}
+    <br/>
+    Price: {{contact.price|currency:"$"}}
+  </div>
+  </div>
+  <a routerLink="/productList">Back to Product List</a>
+</div>

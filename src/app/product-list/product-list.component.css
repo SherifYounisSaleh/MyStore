@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; 
+    height: 300px; ;
+    width: 1000px; 
+    margin-left: 100px; 
+    margin-right: 100px;
+}
+.sub{
+    flex-direction:row ;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+}

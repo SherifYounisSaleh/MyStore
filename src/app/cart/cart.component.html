@@ -1,0 +1,51 @@
+<div class="main">
+    <div class="sub1">
+
+        <ul>
+            <div *ngFor="let product of productlist">
+                <div class="sub2">
+                    <a routerLink="/order/{{product.id}}"><img src={{product.url}} class="imgSize" /></a>
+                    <br />
+                    Product : {{product.name}}
+                    <br />
+                    price {{product.price|currency:"$"}}
+                    <br />
+                    Amount: {{product.quantity }}
+                    <button (click)="DelFromCart( product)">Delete From Cart</button>
+                </div>
+            </div>
+        </ul>
+        <h1>{{cartAmount|currency:"$"}}</h1>
+    </div>
+    <div id="cart-form">
+        <h3>User Information</h3>
+        <form [formGroup]="userform" (ngSubmit)="onSubmit()" novalidate>
+            <label for="name">Name</label>
+            <input id="name" formControlName="fullname" placeholder="Your name">
+            <div *ngIf="userform.controls['fullname'].invalid &&
+            userform.controls['fullname'].touched" class="error">
+            Full Name is required.
+               
+            </div>
+            <label for="address">address</label>
+            <input id="address" formControlName="address" placeholder="Address">
+            <div *ngIf="userform.controls['address'].invalid &&
+            userform.controls['address'].touched" class="error">
+                <div *ngIf="userform.controls['address'].errors">
+                    address is required.
+                </div>
+            </div>
+            <label for="creditCard">creditCard</label>
+            <input id="creditCard" formControlName="creditCard" placeholder="credit Card No">
+            <div *ngIf="userform.controls['creditCard'].invalid &&
+            userform.controls['creditCard'].touched" class="error">
+                <div *ngIf="userform.controls['creditCard'].errors">
+                    creditCard is required.
+                </div>
+            </div>
+            <br />
+            <button type="submit" [disabled]="userform.invalid || this.cartAmount  == 0">submit</button>
+
+        </form>
+    </div>
+</div>

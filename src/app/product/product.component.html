@@ -10,10 +10,10 @@
 <br />
 
 <form #Form="ngForm" >
-    <input class ="inputNum" #num="ngModel" type="number" required min="1"  name="quantity" [(ngModel)]="product.quantity"  >
+    <input class ="inputNum" #num="ngModel" type="number" required min="1"  name="quantity" [(ngModel)]="product.quantity" (ngModelChange)="printTOConsole($event)"  >
     
     <span class="text-danger"  *ngIf="(num.touched|| Form.submitted)&& num.errors?.['required']">
-                 Number is required
+      Number is required
     </span>
     <span class="text-danger"  *ngIf="(num.touched|| Form.submitted)&& num.errors?.['min']">
         min Number is one

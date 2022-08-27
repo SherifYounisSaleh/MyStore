@@ -23,4 +23,7 @@ export class ProductComponent implements OnInit {
   addNewItem(value: number) {
     this.newItemEvent.emit(value);
   }
+  printTOConsole(value: number){
+    console.log('selected Item : '+this.product.name +'is' +value)
+  }
 }

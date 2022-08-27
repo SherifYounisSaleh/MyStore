@@ -31,9 +31,9 @@ export class CartComponent implements OnInit {
     
     this.userform=this.fb.group({
       
-      fullname: ['', [Validators.required, Validators.minLength(3)]],
+      fullname: ['', [Validators.required, Validators.minLength(3),Validators.pattern("[a-zA-Z]+ [a-zA-Z]+$")]],//[a-zA-Z]+(\s+[a-zA-Z]+)
       address: ['', [Validators.required,Validators.minLength(3)]],
-      creditCard: ['', [Validators.required,Validators.minLength(16),Validators.maxLength(16),]],
+      creditCard: ['', [Validators.required,Validators.minLength(16),Validators.maxLength(16), Validators.pattern("^[0-9]*$")]],
       
     });
     this.productlist=this.orderProduct.getProducts()

@@ -9,9 +9,23 @@
 {{product.price|currency:"$"}}
 <br />
 
-<input class ="inputNum" type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" >
+<form #Form="ngForm" >
+    <input class ="inputNum" #num="ngModel" type="number" required min="1"  name="quantity" [(ngModel)]="product.quantity"  >
+    
+    <span class="text-danger"  *ngIf="(num.touched|| Form.submitted)&& num.errors?.['required']">
+                 Number is required
+    </span>
+    <span class="text-danger"  *ngIf="(num.touched|| Form.submitted)&& num.errors?.['min']">
+        min Number is one
+    </span>
+    <br/>
+    <button [disabled]="Form.invalid" reset type="submit"(click)="[addToCart($event, product),addNewItem(product.quantity)]" style="background-color:blue; color:white"  >Add To Cart</button>
+    <br />
+  </form>
+
+<!-- <input class ="inputNum" type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" >
 <br/>
 <button (click)="[addToCart($event, product),addNewItem(product.quantity)]" style="background-color:blue; color:white"  >Add To Cart</button>
-<br />
+<br /> -->
 </div>
 </div> 

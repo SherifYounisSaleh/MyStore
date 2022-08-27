@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import data from '../../assets/data.json'
 import { Product } from '../model/Product';
 import { OrderProductService } from '../service/order-product.service';
+
 
 @Component({
   selector: 'app-product',
@@ -10,6 +11,7 @@ import { OrderProductService } from '../service/order-product.service';
 })
 export class ProductComponent implements OnInit {
   @Input() product:any='';
+  @Output() newItemEvent = new EventEmitter<number>();
   constructor(private orderProduct:OrderProductService) { }
 
   ngOnInit(): void {
@@ -18,5 +20,7 @@ export class ProductComponent implements OnInit {
   
     this.orderProduct.addProduct(product);
   }
-
+  addNewItem(value: number) {
+    this.newItemEvent.emit(value);
+  }
 }

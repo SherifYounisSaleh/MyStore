@@ -11,6 +11,7 @@ import {OrderProductService} from '../service/order-product.service'
 })
 export class ProductListComponent implements OnInit {
    products:Product[]=[];
+   ItemCount:number=0;
   constructor(private product:ProductListService) { 
    this.product.getproducts().subscribe(res=>this.products=res) ;
   }
@@ -18,6 +19,8 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.product)
   }
- 
+  addItem(newItem: number) {
+    this.ItemCount+=newItem;
+  }
 
 }

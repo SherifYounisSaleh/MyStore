@@ -9,9 +9,9 @@
 {{product.price|currency:"$"}}
 <br />
 
-<input class ="inputNum" type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity">
+<input class ="inputNum" type="number" id="quantity" name="quantity" [(ngModel)]="product.quantity" >
 <br/>
-<button (click)="addToCart($event, product)" style="background-color:blue; color:white">Add To Cart</button>
+<button (click)="[addToCart($event, product),addNewItem(product.quantity)]" style="background-color:blue; color:white"  >Add To Cart</button>
 <br />
 </div>
 </div> 

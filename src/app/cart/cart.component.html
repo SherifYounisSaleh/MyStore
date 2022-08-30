@@ -1,7 +1,10 @@
 <div class="main">
     <div class="sub1">
-
-        <ul>
+        <!-- *ngFor="let product of productlist" -->
+            <app-cart-item [cartproduct]="productlist" (calculateCart)="calculate($event)" (removeFromCart)="DelFromCart($event)"></app-cart-item>
+            <h1>{{cartAmount|currency:"$"}}</h1>
+            </div>
+        <!--  <ul>
             <div *ngFor="let product of productlist">
                 <div class="sub2">
                     <a routerLink="/order/{{product.id}}"><img src={{product.url}} class="imgSize" /></a>
@@ -14,10 +17,10 @@
                     <button (click)="DelFromCart( product)">Delete From Cart</button>
                 </div>
             </div>
-        </ul>
+        </ul>  
         <h1>{{cartAmount|currency:"$"}}</h1>
-    </div>
-    <div id="cart-form">
+    </div>-->
+     <div id="cart-form"> 
         <h3>User Information</h3>
         <form [formGroup]="userform" (ngSubmit)="onSubmit()" novalidate>
             <label for="name">Name</label>
@@ -47,5 +50,5 @@
             <button type="submit" [disabled]="userform.invalid || this.cartAmount  == 0">submit</button>
 
         </form>
-    </div>
+     </div>
 </div>

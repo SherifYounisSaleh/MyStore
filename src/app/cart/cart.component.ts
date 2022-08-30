@@ -37,9 +37,7 @@ export class CartComponent implements OnInit {
       
     });
     this.productlist=this.orderProduct.getProducts()
-    for (var prod of this.productlist) {
-      this.cartAmount+= prod.price*prod.quantity // prints values: 10, 20, 30, 40
-    }
+    
   }
 
   onSubmit(): void {
@@ -54,6 +52,11 @@ export class CartComponent implements OnInit {
   DelFromCart( product:any){
     this.orderProduct.DelFromCart(product);
     this.cartAmount-=product.price*product.quantity
+  }
+  calculate(prodObj:number){
+    
+    this.cartAmount=prodObj
+    
   }
   
 }

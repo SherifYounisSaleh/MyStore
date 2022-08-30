@@ -11,7 +11,7 @@ import { OrderProductService } from '../service/order-product.service';
 })
 export class ProductComponent implements OnInit {
   @Input() product:any='';
-  @Output() newItemEvent = new EventEmitter<number>();
+
   constructor(private orderProduct:OrderProductService) { }
 
   ngOnInit(): void {
@@ -20,9 +20,9 @@ export class ProductComponent implements OnInit {
   
     this.orderProduct.addProduct(product);
   }
-  addNewItem(value: number) {
-    this.newItemEvent.emit(value);
-  }
+  // addNewItem(value: number) {
+  //   this.newItemEvent.emit(value);
+  // }
   printTOConsole(value: number){
     console.log('selected Item : '+this.product.name +'is' +value)
   }

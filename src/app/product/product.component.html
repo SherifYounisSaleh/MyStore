@@ -1,4 +1,4 @@
-<div>
+<div >
 <div class="main">
 <a routerLink="/product-details/{{product.id}}"><img src={{product.url}} style="width:200px;height:190px" /></a>
 </div>
@@ -19,7 +19,7 @@
         min Number is one
     </span>
     <br/>
-    <button [disabled]="Form.invalid" reset type="submit"(click)="[addToCart($event, product),addNewItem(product.quantity)]" style="background-color:blue; color:white"  >Add To Cart</button>
+    <button [disabled]="Form.invalid" reset type="submit"(click)="[addToCart($event, product)]" style="background-color:blue; color:white"  >Add To Cart</button>
     <br />
   </form>
 
